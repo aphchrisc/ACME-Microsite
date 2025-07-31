@@ -1845,6 +1845,7 @@ section {
     .hero-section {
         min-height: 100vh;
         padding: var(--spacing-xl) var(--spacing-lg);
+        padding-top: 80px; /* Account for fixed navigation */
     }
     
     .hero-title {
@@ -4127,6 +4128,11 @@ section {
     
     .hero-content {
         padding: var(--spacing-lg);
+    }
+    
+    /* Hide scroll indicator on mobile to prevent overlap with CTA button */
+    .scroll-indicator {
+        display: none;
     }
     
     .hero-stats {
@@ -6527,12 +6533,47 @@ blockquote.theme-quote p {
   .themes-visualization .chart-wrapper {
     padding: 1rem 0;
   }
+  
+  /* General chart container styles for mobile */
+  .chart-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Share of Voice chart adjustments */
+  #share-of-voice-chart {
+    min-height: 300px;
+  }
+  
+  /* Ensure all charts are centered on mobile */
+  .js-plotly-plot {
+    margin: 0 auto;
+  }
 }
 
 /* ===== Theme Flip Cards ===== */
 /* Center the Explore Each Theme heading */
 .theme-details h3 {
   text-align: center;
+}
+
+/* Add visual scroll hint on mobile */
+@media (max-width: 768px) {
+  .theme-details {
+    position: relative;
+  }
+  
+  /* Add scroll hint text */
+  .theme-details::after {
+    content: '← Swipe to see more →';
+    display: block;
+    text-align: center;
+    color: var(--medium-gray);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+  }
 }
 
 .theme-flip-cards-grid {
@@ -6703,13 +6744,69 @@ blockquote.theme-quote p {
 
 @media (max-width: 768px) {
   .theme-flip-cards-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    grid-template-columns: none; /* Override grid */
+  }
+  
+  .theme-flip-card {
+    flex: 0 0 280px; /* Fixed width for each card */
+    scroll-snap-align: start;
+  }
+  
+  /* Remove the nth-child centering on mobile */
+  .theme-flip-card:nth-child(10):last-child {
+    grid-column: unset;
+  }
+  
+  /* Note: Scroll padding handled by container padding */
+}
+
+@media (max-width: 768px) {
+  /* Adjust button positioning to avoid overlap */
+  .flip-btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .flip-btn.back {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  /* Adjust content spacing to prevent overlap with button */
+  .flip-card-front,
+  .flip-card-back {
+    padding: 1.25rem;
+    padding-bottom: 3.5rem; /* Extra space for button */
+  }
+  
+  .flip-card-front h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .flip-card-front .percentage {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .flip-card-back p {
+    font-size: 1rem;
+    margin-bottom: 2rem; /* Ensure text doesn't go under button */
   }
 }
 
 @media (max-width: 480px) {
   .theme-flip-card {
     height: 300px;
+    flex: 0 0 260px; /* Slightly smaller on very small screens */
   }
   
   .flip-card-front h4 {
