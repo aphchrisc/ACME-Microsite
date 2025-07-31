@@ -104,6 +104,8 @@ const Visualizations = {
       hovertemplate: '<b>%{y}</b><br>Count: %{x}<br>Percentage: %{text}<extra></extra>'
     }];
 
+    // Adjust margins for mobile
+    const isMobile = window.innerWidth <= 768;
     const layout = {
       ...ChartConfig.plotlyLayout,
       xaxis: { 
@@ -118,14 +120,14 @@ const Visualizations = {
       height: 300,
       margin: { 
         t: 40, 
-        r: 100, // Increased right margin for text labels
+        r: isMobile ? 50 : 100, // Smaller right margin on mobile
         b: 60, 
-        l: 150  // Increased left margin for category labels
+        l: isMobile ? 120 : 150  // Smaller left margin on mobile
       },
       showlegend: false // Hide the legend
     };
 
-    Plotly.newPlot(container, chartData, layout, {responsive: true});
+    Plotly.newPlot(container, chartData, layout, {responsive: true, displayModeBar: false});
   },
 
   // Themes Pie Chart
@@ -170,22 +172,24 @@ const Visualizations = {
       sort: false
     }];
 
+    // Adjust layout for mobile
+    const isMobile = window.innerWidth <= 768;
     const layout = {
       ...ChartConfig.plotlyLayout,
-      height: 700,
+      height: isMobile ? 500 : 700,
       showlegend: false,
       margin: {
-        t: 80,
-        r: 150,
-        b: 80,
-        l: 150
+        t: isMobile ? 60 : 80,
+        r: isMobile ? 80 : 150,
+        b: isMobile ? 60 : 80,
+        l: isMobile ? 80 : 150
       },
       annotations: [{
         text: '<b>6,904</b><br>Total<br>Responses',
         x: 0.5,
         y: 0.5,
         font: {
-          size: 18,
+          size: isMobile ? 16 : 18,
           color: '#2d3748'
         },
         showarrow: false,
@@ -230,7 +234,7 @@ const Visualizations = {
       height: 400
     };
 
-    Plotly.newPlot(container, chartData, layout, {responsive: true});
+    Plotly.newPlot(container, chartData, layout, {responsive: true, displayModeBar: false});
   },
 
   // Barriers Chart
@@ -261,7 +265,7 @@ const Visualizations = {
       margin: { l: 200 }
     };
 
-    Plotly.newPlot(container, chartData, layout, {responsive: true});
+    Plotly.newPlot(container, chartData, layout, {responsive: true, displayModeBar: false});
   },
 
   // Initialize Maps
