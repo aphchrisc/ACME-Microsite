@@ -136,74 +136,124 @@ const Visualizations = {
     if (!container) return;
 
     const data = ACME_DATA.visualizations.pieChart;
-    
-    // Create labels with percentages
-    const labelsWithPercent = data.labels.map((label, i) => 
-      `${label}<br>${data.values[i]}%`
-    );
-    
-    const chartData = [{
-      labels: data.labels,
-      values: data.values,
-      type: 'pie',
-      hole: 0.4,  // Create donut chart
-      textinfo: 'text',
-      text: labelsWithPercent,
-      textposition: 'outside',
-      textfont: {
-        size: 12,
-        color: '#2d3748'
-      },
-      marker: { 
-        colors: data.colors,
-        line: {
-          color: 'white',
-          width: 3
-        }
-      },
-      hovertemplate: '<b>%{label}</b><br>%{value}% of responses<extra></extra>',
-      hoverlabel: {
-        bgcolor: 'white',
-        bordercolor: '#e2e8f0',
-        font: { color: '#2d3748' }
-      },
-      pull: 0, // Remove pull effect for cleaner look
-      direction: 'clockwise',
-      sort: false
-    }];
-
-    // Adjust layout for mobile
     const isMobile = window.innerWidth <= 768;
-    const layout = {
-      ...ChartConfig.plotlyLayout,
-      height: isMobile ? 500 : 700,
-      showlegend: false,
-      margin: {
-        t: isMobile ? 60 : 80,
-        r: isMobile ? 80 : 150,
-        b: isMobile ? 60 : 80,
-        l: isMobile ? 80 : 150
-      },
-      annotations: [{
-        text: '<b>6,904</b><br>Total<br>Responses',
-        x: 0.5,
-        y: 0.5,
-        font: {
-          size: isMobile ? 16 : 18,
+    
+    if (isMobile) {
+      // Render horizontal bar chart for mobile
+      const chartData = [{
+        x: data.values,
+        y: data.labels,
+        type: 'bar',
+        orientation: 'h',
+        text: data.values.map(v => `${v}%`),
+        textposition: 'outside',
+        textfont: {
+          size: 11,
           color: '#2d3748'
         },
-        showarrow: false,
-        xref: 'paper',
-        yref: 'paper'
-      }]
-    };
+        marker: {
+          color: data.colors
+        },
+        hovertemplate: '<b>%{y}</b><br>%{x}% of responses<extra></extra>'
+      }];
+      
+      const layout = {
+        ...ChartConfig.plotlyLayout,
+        height: 600,
+        margin: { 
+          t: 40, 
+          r: 50, 
+          b: 60, 
+          l: 140  // More space for category names
+        },
+        xaxis: { 
+          title: 'Percentage of Responses',
+          range: [0, 20],
+          showgrid: true,
+          gridcolor: '#e5e7eb'
+        },
+        yaxis: { 
+          automargin: true,
+          categoryorder: 'total ascending'  // Keep same order as pie
+        },
+        showlegend: false
+      };
+      
+      const config = {
+        responsive: true,
+        displayModeBar: false
+      };
+      
+      Plotly.newPlot(container, chartData, layout, config);
+      
+    } else {
+      // Desktop pie chart
+      // Create labels with percentages
+      const labelsWithPercent = data.labels.map((label, i) => 
+        `${label}<br>${data.values[i]}%`
+      );
+      
+      const chartData = [{
+        labels: data.labels,
+        values: data.values,
+        type: 'pie',
+        hole: 0.4,  // Create donut chart
+        textinfo: 'text',
+        text: labelsWithPercent,
+        textposition: 'outside',
+        textfont: {
+          size: 12,
+          color: '#2d3748'
+        },
+        marker: { 
+          colors: data.colors,
+          line: {
+            color: 'white',
+            width: 3
+          }
+        },
+        hovertemplate: '<b>%{label}</b><br>%{value}% of responses<extra></extra>',
+        hoverlabel: {
+          bgcolor: 'white',
+          bordercolor: '#e2e8f0',
+          font: { color: '#2d3748' }
+        },
+        pull: 0, // Remove pull effect for cleaner look
+        direction: 'clockwise',
+        sort: false
+      }];
 
-    const config = {
-      responsive: true,
-      displayModeBar: false
-    };
+      const layout = {
+        ...ChartConfig.plotlyLayout,
+        height: 700,
+        showlegend: false,
+        margin: {
+          t: 80,
+          r: 150,
+          b: 80,
+          l: 150
+        },
+        annotations: [{
+          text: '<b>6,904</b><br>Total<br>Responses',
+          x: 0.5,
+          y: 0.5,
+          font: {
+            size: 18,
+            color: '#2d3748'
+          },
+          showarrow: false,
+          xref: 'paper',
+          yref: 'paper'
+        }]
+      };
 
-    Plotly.newPlot(container, chartData, layout, config);
+      const config = {
+        responsive: true,
+        displayModeBar: false
+      };
+
+      Plotly.newPlot(container, chartData, layout, config);
+    }
   },
 
   // Program Comparison Chart
@@ -788,14 +838,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== WINDOW RESIZE HANDLER =====
 let resizeTimer;
+let lastWindowWidth = window.innerWidth;
+
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    // Redraw Plotly charts on resize
+    const currentWidth = window.innerWidth;
+    const wasMobile = lastWindowWidth <= 768;
+    const isMobile = currentWidth <= 768;
+    
+    // If we've crossed the mobile/desktop threshold, re-render the pie/bar chart
+    if (wasMobile !== isMobile) {
+      Visualizations.renderThemesPieChart();
+    }
+    
+    // Redraw all Plotly charts on resize
     const plotlyCharts = document.querySelectorAll('.js-plotly-plot');
     plotlyCharts.forEach(chart => {
       Plotly.Plots.resize(chart);
     });
+    
+    lastWindowWidth = currentWidth;
   }, 250);
 });
 
