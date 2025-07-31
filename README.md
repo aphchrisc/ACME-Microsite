@@ -476,5 +476,5 @@ When asking for help, share:
 
 ---
 
-Last updated: January 2025
+Last updated: July 30, 2025
 Version: 2.0 - GitHub Edition
