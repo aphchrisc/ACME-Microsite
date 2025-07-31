@@ -4124,6 +4124,7 @@ section {
     .hero-section {
         min-height: 100vh;
         padding: var(--spacing-lg);
+        padding-top: 80px; /* Account for fixed navigation */
     }
     
     .hero-content {
@@ -6527,7 +6528,9 @@ blockquote.theme-quote p {
 
 @media (max-width: 768px) {
   #themes-pie-chart {
-    min-height: 500px;
+    min-height: 600px !important;
+    height: 600px !important;
+    display: block;
   }
   
   .themes-visualization .chart-wrapper {
@@ -6549,6 +6552,11 @@ blockquote.theme-quote p {
   /* Ensure all charts are centered on mobile */
   .js-plotly-plot {
     margin: 0 auto;
+  }
+  
+  /* Hide pie chart labels if they're causing issues */
+  #themes-pie-chart .textpath {
+    display: none !important;
   }
 }
 
