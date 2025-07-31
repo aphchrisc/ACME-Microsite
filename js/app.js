@@ -140,52 +140,39 @@ const Visualizations = {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
     if (isMobile) {
-      // Render horizontal bar chart for mobile
-      const chartData = [{
-        x: data.values,
-        y: data.labels,
-        type: 'bar',
-        orientation: 'h',
-        text: data.values.map(v => `${v}%`),
-        textposition: 'outside',
-        textfont: {
-          size: 11,
-          color: '#2d3748'
-        },
-        marker: {
-          color: data.colors
-        },
-        hovertemplate: '<b>%{y}</b><br>%{x}% of responses<extra></extra>'
-      }];
+      // Render HTML bar chart for mobile instead of Plotly
+      // Scale values to use more of the available width
+      const maxValue = Math.max(...data.values);
+      const scaledValues = data.values.map(v => (v / maxValue) * 85); // Scale to 85% max width
       
-      const layout = {
-        ...ChartConfig.plotlyLayout,
-        height: 600,
-        margin: { 
-          t: 40, 
-          r: 50, 
-          b: 60, 
-          l: 140  // More space for category names
-        },
-        xaxis: { 
-          title: 'Percentage of Responses',
-          range: [0, 20],
-          showgrid: true,
-          gridcolor: '#e5e7eb'
-        },
-        yaxis: { 
-          automargin: true,
-          categoryorder: 'total ascending'  // Keep same order as pie
-        },
-        showlegend: false
-      };
+      container.innerHTML = `
+        <div class="themes-bar-chart">
+          <h3>Top 10 Themes</h3>
+          <div class="themes-chart-container">
+            ${data.labels.map((label, index) => `
+              <div class="theme-bar-item">
+                <div class="theme-bar-label">${label}</div>
+                <div class="theme-bar-wrapper">
+                  <div class="theme-bar" data-width="${scaledValues[index]}%" style="width: 0%; background-color: ${data.colors[index]}"></div>
+                  <span class="theme-bar-percent">${data.values[index]}%</span>
+                </div>
+              </div>
+            `).join('')}
+            <div class="chart-footer">
+              <span>Percentage of Total Responses</span>
+            </div>
+          </div>
+        </div>
+      `;
       
-      const config = {
-        responsive: true,
-        displayModeBar: false
-      };
-      
-      Plotly.newPlot(container, chartData, layout, config);
+      // Animate bars after render
+      setTimeout(() => {
+        const bars = container.querySelectorAll('.theme-bar');
+        bars.forEach((bar) => {
+          const targetWidth = bar.getAttribute('data-width');
+          bar.style.width = targetWidth;
+        });
+      }, 100);
       
     } else {
       // Desktop pie chart
