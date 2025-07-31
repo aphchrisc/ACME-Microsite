@@ -6554,9 +6554,90 @@ blockquote.theme-quote p {
     margin: 0 auto;
   }
   
-  /* Hide pie chart labels if they're causing issues */
-  #themes-pie-chart .textpath {
+  /* Remove any Plotly-specific styles on mobile since we're using HTML */
+  #themes-pie-chart .plotly {
     display: none !important;
+  }
+}
+
+/* ===== Themes Bar Chart for Mobile ===== */
+.themes-bar-chart {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.themes-bar-chart h3 {
+  color: #6B46C1;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.theme-bar-item {
+  margin-bottom: 1.5rem;
+}
+
+.theme-bar-label {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.theme-bar-wrapper {
+  background: #F3F4F6;
+  height: 28px;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.theme-bar {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 1s ease-out;
+  position: relative;
+}
+
+.theme-bar-percent {
+  position: absolute;
+  right: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1F2937;
+  z-index: 1;
+}
+
+.themes-chart-container .chart-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+@media (max-width: 768px) {
+  .themes-bar-chart {
+    padding: 1.5rem;
+  }
+  
+  .theme-bar-item {
+    margin-bottom: 1.25rem;
+  }
+  
+  .theme-bar-label {
+    font-size: 0.8rem;
+  }
+  
+  .theme-bar-wrapper {
+    height: 24px;
+  }
+  
+  .theme-bar-percent {
+    font-size: 0.7rem;
   }
 }
 
