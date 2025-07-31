@@ -1875,6 +1875,12 @@ section {
         font-size: 0.875rem;
     }
     
+    .hero-disclaimer {
+        font-size: 0.875rem;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem auto 2rem;
+    }
+    
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -6219,6 +6225,21 @@ blockquote.theme-quote p {
   animation: fadeInUp 1s ease 0.8s both;
 }
 
+.hero-disclaimer {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 2rem auto 2.5rem;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
 @media (min-width: 768px) {
   .stats-list {
     flex-direction: row;
@@ -6310,9 +6331,9 @@ blockquote.theme-quote p {
 }
 
 .finding-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: white !important;
   opacity: 1;
 }
@@ -6326,12 +6347,20 @@ blockquote.theme-quote p {
 }
 
 .finding-card .finding-stat {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   color: white !important;
   -webkit-text-fill-color: white !important;
   background: none !important;
+  margin-bottom: 0.75rem;
+}
+
+.finding-stat .stat-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-left: 0.25rem;
 }
 
 /* Add subtle accent line at bottom of card */
@@ -6837,6 +6866,40 @@ blockquote.theme-quote p {
   line-height: 1.5;
 }
 
+/* Methodology Acknowledgement */
+.methodology-acknowledgement {
+  background: white;
+  border-radius: 16px;
+  padding: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--primary-purple);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.methodology-acknowledgement:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.methodology-acknowledgement h3 {
+  color: var(--primary-purple);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-semibold);
+}
+
+.methodology-acknowledgement p {
+  color: var(--dark-gray);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: var(--font-light);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .methodology-stats {
@@ -6865,5 +6928,18 @@ blockquote.theme-quote p {
   
   .method-icon {
     font-size: 2.5rem;
+  }
+  
+  .methodology-acknowledgement {
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .methodology-acknowledgement h3 {
+    font-size: 1.25rem;
+  }
+  
+  .methodology-acknowledgement p {
+    font-size: 1rem;
   }
 }
