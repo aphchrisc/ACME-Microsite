@@ -463,7 +463,6 @@ const ProgramTabs = {
     container.innerHTML = `
       <div class="program-details">
         <h3>${program.program_name}</h3>
-        <p class="program-response-count">${program.response_count} responses analyzed</p>
         
         <div class="program-insights">
           <div class="program-strengths">
@@ -472,7 +471,6 @@ const ProgramTabs = {
               <div class="insight-item strength">
                 <h5>${strength.title}</h5>
                 <p>${strength.description}</p>
-                <span class="frequency">${strength.frequency} mentions</span>
               </div>
             `).join('')}
           </div>
@@ -483,7 +481,6 @@ const ProgramTabs = {
               <div class="insight-item challenge">
                 <h5>${challenge.title}</h5>
                 <p>${challenge.description}</p>
-                <span class="frequency">${challenge.frequency} mentions</span>
               </div>
             `).join('')}
           </div>

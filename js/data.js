@@ -348,6 +348,36 @@ const ACME_DATA = {
           frequency: 9
         }
       ]
+    },
+    heritage: {
+      program_name: "Heritage Preservation Grant",
+      awareness_count: 353,
+      awareness_percentage: 28.4,
+      response_count: 87,
+      strengths: [
+        {
+          title: "Infrastructure Support",
+          description: "Instrumental in preserving important heritage sites, including historically Black institutions and culturally significant spaces.",
+          frequency: 8
+        },
+        {
+          title: "Cultural Legacy Protection",
+          description: "Helps maintain Austin's diverse cultural history through physical preservation of important community landmarks.",
+          frequency: 6
+        }
+      ],
+      challenges: [
+        {
+          title: "Complex Application Process",
+          description: "Application and reporting processes are complex, repetitive, and time-consuming, especially for small or volunteer-run organizations.",
+          frequency: 15
+        },
+        {
+          title: "Limited Scope and Eligibility",
+          description: "Current focus on exterior preservation excludes programming, events, and interior projects that could better serve diverse communities.",
+          frequency: 12
+        }
+      ]
     }
   },
 
@@ -377,9 +407,9 @@ const ACME_DATA = {
 
     // Program comparison data
     programComparison: {
-      programs: ["Nexus", "Thrive", "Elevate", "Live Music", "Creative Space", "AIPP"],
-      awareness: [50.0, 46.9, 48.7, 40.0, 25.5, 49.0],
-      satisfaction: [3.8, 4.1, 3.9, 3.7, 3.5, 4.0]  // Example satisfaction scores
+      programs: ["Nexus", "Thrive", "Elevate", "Live Music", "Creative Space", "AIPP", "Heritage"],
+      awareness: [50.0, 46.9, 48.7, 40.0, 25.5, 49.0, 28.4],
+      satisfaction: [3.8, 4.1, 3.9, 3.7, 3.5, 4.0, 3.5]  // Example satisfaction scores
     }
   },
 
