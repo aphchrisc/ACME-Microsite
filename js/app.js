@@ -136,7 +136,8 @@ const Visualizations = {
     if (!container) return;
 
     const data = ACME_DATA.visualizations.pieChart;
-    const isMobile = window.innerWidth <= 768;
+    // Use matchMedia for more reliable mobile detection
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
     if (isMobile) {
       // Render horizontal bar chart for mobile
@@ -833,6 +834,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize scroll indicator
   ScrollIndicator.init();
   
+  // Force re-render of charts after page settles (for mobile)
+  setTimeout(() => {
+    Visualizations.renderThemesPieChart();
+  }, 500);
+  
   console.log('ACME Microsite initialized successfully!');
 });
 
@@ -843,9 +849,9 @@ let lastWindowWidth = window.innerWidth;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    const currentWidth = window.innerWidth;
     const wasMobile = lastWindowWidth <= 768;
-    const isMobile = currentWidth <= 768;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const currentWidth = window.innerWidth;
     
     // If we've crossed the mobile/desktop threshold, re-render the pie/bar chart
     if (wasMobile !== isMobile) {
