@@ -7,16 +7,16 @@ const ACME_DATA = {
   // TO UPDATE: Change the values below to reflect new survey data
   summary: {
     overview: {
-      total_feedback_points: 2638,  // Total number of feedback points collected
-      unique_participants: 1244,    // Number of unique survey participants
-      feedback_sessions: 54,        // Number of feedback sessions conducted
-      total_qualitative_comments: 6904  // Total qualitative comments analyzed
+      total_feedback_points: 3840,  // Total number of feedback points collected
+      unique_participants: 1289,    // Number of unique survey participants
+      feedback_sessions: 2551,      // Number of feedback sessions conducted
+      total_qualitative_comments: 16050  // Total qualitative comments analyzed
     },
     survey_stats: {
-      total_responses: 1244,        // Total survey responses
+      total_responses: 1289,        // Total survey responses
       completion_rate: 95.4,        // Survey completion rate (percentage)
       geographic_distribution: {
-        unique_zip_codes: 92,       // Number of unique zip codes represented
+        unique_zip_codes: 95,       // Number of unique zip codes represented
         unique_districts: 11        // Number of council districts represented
       }
     }
@@ -25,24 +25,24 @@ const ACME_DATA = {
   // ===== QUANTITATIVE DATA (WHO PARTICIPATED) =====
   quantitative: {
     overview: {
-      total_survey_responses: 1244,
-      focus_groups: 17,             // Number of focus groups conducted
-      one_on_one_interviews: 14,    // Number of 1:1 interviews conducted
-      listening_sessions: "Data not available at time of reporting"
+      total_survey_responses: 1289,
+      focus_groups: 2,              // Number of focus groups conducted
+      one_on_one_interviews: 5,     // Number of 1:1 interviews conducted
+      listening_sessions: 6          // Number of listening sessions conducted
     },
     share_of_voice: {
       // Note: These add up to more than 100% because respondents could select multiple roles
       creatives: {
-        count: 803,
-        percentage: 64.5
+        count: 863,
+        percentage: 67.0
       },
       organizational_staff: {
-        count: 337,
-        percentage: 27.1
+        count: 478,
+        percentage: 37.1
       },
       community_members_patrons: {
-        count: 749,
-        percentage: 60.2
+        count: 681,
+        percentage: 52.8
       }
     },
     detailed_breakdown: {
@@ -171,8 +171,8 @@ const ACME_DATA = {
   programs: {
     nexus: {
       program_name: "Nexus Grant Program",
-      awareness_count: 622,
-      awareness_percentage: 50.0,
+      awareness_count: 686,
+      awareness_percentage: 53.2,
       response_count: 59,
       strengths: [
         {
@@ -201,8 +201,8 @@ const ACME_DATA = {
     },
     thrive: {
       program_name: "Thrive Grant Program",
-      awareness_count: 583,
-      awareness_percentage: 46.9,
+      awareness_count: 639,
+      awareness_percentage: 49.6,
       response_count: 48,
       strengths: [
         {
@@ -231,8 +231,8 @@ const ACME_DATA = {
     },
     elevate: {
       program_name: "Elevate Grant Program",
-      awareness_count: 606,
-      awareness_percentage: 48.7,
+      awareness_count: 665,
+      awareness_percentage: 51.6,
       response_count: 52,
       strengths: [
         {
@@ -261,8 +261,8 @@ const ACME_DATA = {
     },
     music: {
       program_name: "Austin Live Music Fund",
-      awareness_count: 498,
-      awareness_percentage: 40.0,
+      awareness_count: 552,
+      awareness_percentage: 42.8,
       response_count: 43,
       strengths: [
         {
@@ -291,8 +291,8 @@ const ACME_DATA = {
     },
     space: {
       program_name: "Creative Space Assistance Program",
-      awareness_count: 317,
-      awareness_percentage: 25.5,
+      awareness_count: 354,
+      awareness_percentage: 27.5,
       response_count: 38,
       strengths: [
         {
@@ -321,8 +321,8 @@ const ACME_DATA = {
     },
     aipp: {
       program_name: "Art in Public Places",
-      awareness_count: 610,
-      awareness_percentage: 49.0,
+      awareness_count: 669,
+      awareness_percentage: 51.9,
       response_count: 41,
       strengths: [
         {
