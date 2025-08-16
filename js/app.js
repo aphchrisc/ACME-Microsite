@@ -250,7 +250,7 @@ const Visualizations = {
         },
         annotations: [
           {
-            text: "<b>16,050</b><br>Total<br>Comments",
+            text: "<b>11,801</b><br>Total<br>Comments",
             x: 0.5,
             y: 0.5,
             font: {

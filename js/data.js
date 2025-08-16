@@ -10,7 +10,7 @@ const ACME_DATA = {
       total_feedback_points: 3840,  // Total number of feedback points collected
       unique_participants: 1289,    // Number of unique survey participants
       feedback_sessions: 2551,      // Number of feedback sessions conducted
-      total_qualitative_comments: 16050  // Total qualitative comments analyzed
+      total_qualitative_comments: 11801  // Total qualitative comments analyzed
     },
     survey_stats: {
       total_responses: 1289,        // Total survey responses
