@@ -6528,6 +6528,7 @@ blockquote.theme-quote p {
 
 @media (max-width: 768px) {
   #themes-pie-chart {
+    /* Default fallback height for Plotly donut; will be overridden in bar mode */
     min-height: 600px !important;
     height: 600px !important;
     display: block;
@@ -6566,6 +6567,16 @@ blockquote.theme-quote p {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* When in mobile bar mode, allow the container to auto-size so content doesn't overlap
+   and ensure spacing before the scrolling card list */
+@media (max-width: 768px) {
+  #themes-pie-chart.mobile-themes-bar {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 24px; /* breathing room above the cards */
+  }
 }
 
 .themes-bar-chart h3 {
@@ -6651,6 +6662,8 @@ blockquote.theme-quote p {
 @media (max-width: 768px) {
   .theme-details {
     position: relative;
+    margin-top: 40px; /* Add space above theme cards when bar chart is shown */
+    padding-top: 20px; /* Additional padding for better spacing */
   }
   
   /* Add scroll hint text */
