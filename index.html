@@ -1,324 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voices from Austin's Creative Community - ACME Cultural Funding Analysis</title>
-    <meta name="description" content="Comprehensive analysis of community feedback on Austin's cultural funding programs based on 1,289 survey responses, 2,551 session entries, and 11,801 qualitative comments.">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Voices from Austin's Creative Community - ACME Cultural Funding Analysis
+    </title>
+    <meta
+      name="description"
+      content="Comprehensive analysis of community feedback on Austin's cultural funding programs based on 1,289 survey responses, 2,551 session entries, and 11,801 qualitative comments."
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- External Libraries -->
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navigation">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="#hero">ACME Analysis</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#dashboard">Key Findings</a></li>
-                <li><a href="#demographics">Who We Heard From</a></li>
-                <li><a href="#themes">What We Heard</a></li>
-                <li><a href="#focus-areas">Key Focus Areas</a></li>
-                <li><a href="#methodology">Methodology</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="#hero">ACME Analysis</a>
         </div>
+        <ul class="nav-menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#dashboard">Key Findings</a></li>
+          <li><a href="#demographics">Who We Heard From</a></li>
+          <li><a href="#themes">What We Heard</a></li>
+          <li><a href="#focus-areas">Key Focus Areas</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Voices from Austin's Creative Community</h1>
-                <p class="hero-subtitle">An analysis of community feedback on cultural funding programs</p>
-                <div class="hero-disclaimer">
-                    The data presented here is based on community feedback received through multiple channels including an online survey, focus groups, and one-to-one interviews. This analysis is based on responses through June 13, 2025. Due to the ongoing structure of the engagement process, not all responses are reflected. To view additional comments and submissions, additional data can be found on the City of Austin's Open Data portal soon.
-                </div>
-                <div class="hero-stats-text">
-                    <ul class="stats-list">
-                        <li>1,289 Survey Responses</li>
-                        <li>200+ Focus Group Participants</li>
-                        <li>50+ Community Conversations</li>
-                    </ul>
-                </div>
-                <a href="#dashboard" class="cta-button">Explore Findings</a>
-                <p class="hero-footnote">*Responses collected through June 13, 2025</p>
-            </div>
-            <div class="scroll-indicator"></div>
-        </section>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Voices from Austin's Creative Community</h1>
+          <p class="hero-subtitle">
+            An analysis of community feedback on cultural funding programs
+          </p>
+          <div class="hero-disclaimer">
+            The data presented here is based on community feedback received
+            through multiple channels including an online survey, focus groups,
+            listening sessions and one-to-one interviews. This analysis is based
+            on responses through July 20, 2025. To view comments and
+            submissions, additional data can be found on the City of Austin's
+            Open Data portal soon.
+          </div>
+          <div class="hero-stats-text">
+            <ul class="stats-list">
+              <li>1,289 Survey Responses</li>
+              <li>200+ Focus Group Participants</li>
+              <li>50+ Community Conversations</li>
+            </ul>
+          </div>
+          <a href="#dashboard" class="cta-button">Explore Findings</a>
+        </div>
+        <div class="scroll-indicator"></div>
+      </section>
 
-        <!-- Executive Dashboard -->
-        <section id="dashboard" class="section executive-dashboard">
-            <div class="container">
-                <h2 class="section-title reveal">Executive Summary</h2>
-                <p class="section-intro reveal">Our analysis of 6,904 responses reveals a vibrant yet challenged ecosystem. Three key findings emerged from the comprehensive analysis of Austin's investment in arts, culture, music, and heritage.</p>
-                
-                <h3 class="findings-heading reveal">Key Findings</h3>
-                
-                <div class="key-findings">
-                    <div class="finding-card economic reveal">
-                        <div class="finding-icon">💰</div>
-                        <div class="finding-content">
-                            <h3>Economic Barriers</h3>
-                            <div class="finding-stat">18% <span class="stat-label">of mentions</span></div>
-                            <p>Affordability is a critical threat to the vibrancy and diversity of Austin's creative sector.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="finding-card process reveal delay-100">
-                        <div class="finding-icon">📋</div>
-                        <div class="finding-content">
-                            <h3>Process and Transparency</h3>
-                            <div class="finding-stat">20% <span class="stat-label">of mentions</span></div>
-                            <p>Complex programs and a lack of transparency erode trust, integrity, and participation.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="finding-card equity reveal delay-200">
-                        <div class="finding-icon">🤝</div>
-                        <div class="finding-content">
-                            <h3>Equity Gap</h3>
-                            <div class="finding-stat">13% <span class="stat-label">of mentions</span></div>
-                            <p>Bridging intent with implementation requires cooperation with infrastructure development.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Executive Dashboard -->
+      <section id="dashboard" class="section executive-dashboard">
+        <div class="container">
+          <h2 class="section-title reveal">Executive Summary</h2>
+          <p class="section-intro reveal">
+            Our analysis of 11,801 comments reveals a vibrant yet challenged
+            ecosystem. Three key findings emerged from the comprehensive
+            analysis of Austin's investment in arts, culture, music, and
+            heritage.
+          </p>
 
-        <!-- Demographics Section -->
-        <section id="demographics" class="section demographics-section">
-            <div class="container">
-                <h2 class="section-title reveal">Who We Heard From</h2>
-                <p class="section-intro reveal">Our findings reflect many voices of Austin's creative community.</p>
-                
-                <div class="demographics-grid">
-                    <div class="demo-card reveal">
-                        <h3 class="subsection-title">Share of Voice</h3>
-                        <div id="share-of-voice-chart" class="chart-container"></div>
-                        <p class="chart-note">614 respondents identified with multiple roles</p>
-                        
-                        <div class="voice-cards">
-                            <div class="voice-card purple-card">
-                                <div class="voice-icon">🎨</div>
-                                <div class="voice-content">
-                                    <div class="voice-percentage">67.0%</div>
-                                    <div class="voice-label">Creatives</div>
-                                    <div class="voice-description">Direct beneficiaries and workforce of the cultural sector</div>
-                                </div>
-                            </div>
-                            <div class="voice-card blue-card">
-                                <div class="voice-icon">👥</div>
-                                <div class="voice-content">
-                                    <div class="voice-percentage">52.8%</div>
-                                    <div class="voice-label">Community Members</div>
-                                    <div class="voice-description">Audiences and civic supporters of cultural arts</div>
-                                </div>
-                            </div>
-                            <div class="voice-card orange-card">
-                                <div class="voice-icon">🏢</div>
-                                <div class="voice-content">
-                                    <div class="voice-percentage">37.1%</div>
-                                    <div class="voice-label">Organizational Staff</div>
-                                    <div class="voice-description">Offering insights into operations and sustainability</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-card reveal delay-100">
-                        <h3 class="subsection-title">Geographic Distribution</h3>
-                        <p class="map-subtitle">Survey Response Distribution by Zip Code</p>
-                        <p class="map-description">Larger circles indicate more responses. Note the concentration in central and east Austin.</p>
-                        <div id="zipcode-map" class="map-container"></div>
-                        
-                        <div class="geo-stats-cards">
-                            <div class="geo-stat-card purple-card">
-                                <div class="stat-icon">📍</div>
-                                <div class="stat-content">
-                                    <div class="stat-number">95</div>
-                                    <div class="stat-label">Zip Codes Participated</div>
-                                </div>
-                            </div>
-                            <div class="geo-stat-card pink-card">
-                                <div class="stat-icon">🏆</div>
-                                <div class="stat-content">
-                                    <div class="stat-number">78745</div>
-                                    <div class="stat-label">Highest Response</div>
-                                </div>
-                            </div>
-                            <div class="geo-stat-card red-card">
-                                <div class="stat-icon">⚠️</div>
-                                <div class="stat-content">
-                                    <div class="stat-number">78734</div>
-                                    <div class="stat-label">Lowest Awareness</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <h3 class="findings-heading reveal">Key Findings</h3>
 
-        <!-- What We Heard Section -->
-        <section id="themes" class="section themes-section">
-            <div class="container">
-                <h2 class="section-title reveal">What We Heard</h2>
-                <p class="section-intro reveal">Our analysis revealed key themes and insights from the community's feedback across all programs and channels.</p>
-                
-                <h3 class="subsection-title reveal">Top 10 Themes</h3>
-                <p class="section-intro reveal">The following represents the most critical issues raised by the community, based on analysis of 11,801 total comments.</p>
-                
-                <div class="themes-visualization">
-                    <div class="chart-wrapper reveal">
-                        <div id="themes-pie-chart" class="chart-container"></div>
-                    </div>
+          <div class="key-findings">
+            <div class="finding-card economic reveal">
+              <div class="finding-icon">💰</div>
+              <div class="finding-content">
+                <h3>Economic Barriers</h3>
+                <div class="finding-stat">
+                  18% <span class="stat-label">of mentions</span>
                 </div>
-                
-                <div class="theme-details reveal delay-200">
-                    <h3>Explore Each Theme</h3>
-                    <div id="theme-flip-cards-container" class="theme-flip-cards-grid">
-                        <!-- Flip cards will be populated by JavaScript -->
-                    </div>
+                <p>
+                  Affordability is a critical threat to the vibrancy and
+                  diversity of Austin's creative sector.
+                </p>
+              </div>
+            </div>
+
+            <div class="finding-card process reveal delay-100">
+              <div class="finding-icon">📋</div>
+              <div class="finding-content">
+                <h3>Process and Transparency</h3>
+                <div class="finding-stat">
+                  20% <span class="stat-label">of mentions</span>
                 </div>
-                
-                <!-- Analysis Methodology Section - Commented out per request
+                <p>
+                  Complex programs and a lack of transparency erode trust,
+                  integrity, and participation.
+                </p>
+              </div>
+            </div>
+
+            <div class="finding-card equity reveal delay-200">
+              <div class="finding-icon">🤝</div>
+              <div class="finding-content">
+                <h3>Equity Gap</h3>
+                <div class="finding-stat">
+                  13% <span class="stat-label">of mentions</span>
+                </div>
+                <p>
+                  Bridging intent with implementation requires cooperation with
+                  infrastructure development.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Demographics Section -->
+      <section id="demographics" class="section demographics-section">
+        <div class="container">
+          <h2 class="section-title reveal">Who We Heard From</h2>
+          <p class="section-intro reveal">
+            Our findings reflect many voices of Austin's creative community.
+          </p>
+
+          <div class="demographics-grid">
+            <div class="demo-card reveal">
+              <h3 class="subsection-title">Share of Voice</h3>
+              <div id="share-of-voice-chart" class="chart-container"></div>
+              <p class="chart-note">
+                614 respondents identified with multiple roles
+              </p>
+
+              <div class="voice-cards">
+                <div class="voice-card purple-card">
+                  <div class="voice-icon">🎨</div>
+                  <div class="voice-content">
+                    <div class="voice-percentage">67.0%</div>
+                    <div class="voice-label">Creatives</div>
+                    <div class="voice-description">
+                      Direct beneficiaries and workforce of the cultural sector
+                    </div>
+                  </div>
+                </div>
+                <div class="voice-card blue-card">
+                  <div class="voice-icon">👥</div>
+                  <div class="voice-content">
+                    <div class="voice-percentage">52.8%</div>
+                    <div class="voice-label">Community Members</div>
+                    <div class="voice-description">
+                      Audiences and civic supporters of cultural arts
+                    </div>
+                  </div>
+                </div>
+                <div class="voice-card orange-card">
+                  <div class="voice-icon">🏢</div>
+                  <div class="voice-content">
+                    <div class="voice-percentage">37.1%</div>
+                    <div class="voice-label">Organizational Staff</div>
+                    <div class="voice-description">
+                      Offering insights into operations and sustainability
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-card reveal delay-100">
+              <h3 class="subsection-title">Geographic Distribution</h3>
+              <p class="map-subtitle">
+                Survey Response Distribution by Zip Code
+              </p>
+              <p class="map-description">
+                Larger circles indicate more responses. Note the concentration
+                in central and east Austin.
+              </p>
+              <div id="zipcode-map" class="map-container"></div>
+
+              <div class="geo-stats-cards">
+                <div class="geo-stat-card purple-card">
+                  <div class="stat-icon">📍</div>
+                  <div class="stat-content">
+                    <div class="stat-number">95</div>
+                    <div class="stat-label">Zip Codes Participated</div>
+                  </div>
+                </div>
+                <div class="geo-stat-card pink-card">
+                  <div class="stat-icon">🏆</div>
+                  <div class="stat-content">
+                    <div class="stat-number">78745</div>
+                    <div class="stat-label">Highest Response</div>
+                  </div>
+                </div>
+                <div class="geo-stat-card red-card">
+                  <div class="stat-icon">⚠️</div>
+                  <div class="stat-content">
+                    <div class="stat-number">78734</div>
+                    <div class="stat-label">Lowest Awareness</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Heard Section -->
+      <section id="themes" class="section themes-section">
+        <div class="container">
+          <h2 class="section-title reveal">What We Heard</h2>
+          <p class="section-intro reveal">
+            Our analysis revealed key themes and insights from the community's
+            feedback across all programs and channels.
+          </p>
+
+          <h3 class="subsection-title reveal">Top 10 Themes</h3>
+          <p class="section-intro reveal">
+            The following represents the most critical issues raised by the
+            community, based on analysis of 11,801 total comments.
+          </p>
+
+          <div class="themes-visualization">
+            <div class="chart-wrapper reveal">
+              <div id="themes-pie-chart" class="chart-container"></div>
+            </div>
+          </div>
+
+          <div class="theme-details reveal delay-200">
+            <h3>Explore Each Theme</h3>
+            <div id="theme-flip-cards-container" class="theme-flip-cards-grid">
+              <!-- Flip cards will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Analysis Methodology Section - Commented out per request
                 <div class="methodology-note reveal delay-300">
                     <h3>Analysis Methodology</h3>
                     <p><strong>Sentiment Analysis:</strong> Each theme's sentiment was determined through qualitative analysis of response tone, language patterns, and emotional indicators. Responses expressing frustration, concern, or criticism were classified as negative; those expressing hope, satisfaction, or support were positive; and mixed responses containing both elements were noted accordingly.</p>
                     <p><strong>Priority Classification:</strong> Priority levels (Critical, High, Medium) were assigned based on three factors: frequency of mentions (volume), intensity of sentiment (urgency in language), and potential impact on the creative community's sustainability and equity. Themes affecting basic needs, access, or systemic barriers received higher priority ratings.</p>
                 </div>
                 -->
-                
-                <!-- Program-Specific Insights Subsection -->
-                <h3 class="subsection-title reveal">Program-Specific Insights</h3>
-                <p class="section-intro reveal">Each cultural funding program faces unique challenges and opportunities.</p>
-                
-                <div class="program-tabs reveal">
-                    <div class="tab-buttons" role="tablist">
-                        <button class="tab-button active" data-program="nexus" role="tab">Nexus</button>
-                        <button class="tab-button" data-program="thrive" role="tab">Thrive</button>
-                        <button class="tab-button" data-program="elevate" role="tab">Elevate</button>
-                        <button class="tab-button" data-program="music" role="tab">Live Music</button>
-                        <button class="tab-button" data-program="space" role="tab">Creative Space</button>
-                        <button class="tab-button" data-program="aipp" role="tab">AIPP</button>
-                        <button class="tab-button" data-program="heritage" role="tab">Heritage</button>
-                    </div>
-                    
-                    <div class="tab-content" id="program-content">
-                        <!-- Program content will be populated by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Key Focus Areas Section -->
-        <section id="focus-areas" class="section focus-areas-section">
-            <div class="container">
-                <h2 class="section-title reveal">Key Focus Areas</h2>
-                <p class="section-intro reveal">Critical areas requiring focused attention and action based on community feedback</p>
-                
-                <!-- Equity & Access Subsection -->
-                <h3 class="subsection-title reveal">Equity & Access Analysis</h3>
-                <p class="section-intro reveal">Understanding barriers to equitable participation in Austin</p>
-                
-                <div class="equity-themes-container">
-                    <h3 class="equity-subtitle reveal">Key Areas of Focus</h3>
-                    <div class="equity-themes-grid">
-                        <div class="equity-theme-card reveal" data-theme="bipoc">
-                            <div class="theme-icon">🎨</div>
-                            <div class="equity-theme-content">
-                                <h4>BIPOC Artists & Organizations</h4>
-                                <p>Supporting Black, Latinx, Indigenous, and artists of color through reduced barriers and targeted resources</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">557</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="equity-theme-card reveal delay-50" data-theme="accessibility">
-                            <div class="theme-icon">♿</div>
-                            <div class="equity-theme-content">
-                                <h4>Disability Access</h4>
-                                <p>Ensuring venues, programs, and communications are fully accessible to disabled community members</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">424</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="equity-theme-card reveal delay-100" data-theme="lgbtqia">
-                            <div class="theme-icon">🏳️‍🌈</div>
-                            <div class="equity-theme-content">
-                                <h4>LGBTQIA+ Inclusion</h4>
-                                <p>Creating safe, welcoming spaces and opportunities for LGBTQIA+ artists and audiences</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">323</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="equity-theme-card reveal delay-150" data-theme="language">
-                            <div class="theme-icon">🌐</div>
-                            <div class="equity-theme-content">
-                                <h4>Language Access</h4>
-                                <p>Providing multilingual support and removing language barriers to participation</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">503</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="equity-theme-card reveal delay-200" data-theme="geographic">
-                            <div class="theme-icon">📍</div>
-                            <div class="equity-theme-content">
-                                <h4>Geographic Equity</h4>
-                                <p>Ensuring cultural opportunities reach all Austin neighborhoods, not just central areas</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">705</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="equity-theme-card reveal delay-250" data-theme="economic">
-                            <div class="theme-icon">💰</div>
-                            <div class="equity-theme-content">
-                                <h4>Economic Barriers</h4>
-                                <p>Addressing financial obstacles that prevent equitable participation in cultural programs</p>
-                                <div class="impact-indicator">
-                                    <span class="impact-number">368</span>
-                                    <span class="impact-label">mentions</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Program-Specific Insights Subsection -->
+          <h3 class="subsection-title reveal">Program-Specific Insights</h3>
+          <p class="section-intro reveal">
+            Each cultural funding program faces unique challenges and
+            opportunities.
+          </p>
+
+          <div class="program-tabs reveal">
+            <div class="tab-buttons" role="tablist">
+              <button class="tab-button active" data-program="nexus" role="tab">
+                Nexus
+              </button>
+              <button class="tab-button" data-program="thrive" role="tab">
+                Thrive
+              </button>
+              <button class="tab-button" data-program="elevate" role="tab">
+                Elevate
+              </button>
+              <button class="tab-button" data-program="music" role="tab">
+                Live Music
+              </button>
+              <button class="tab-button" data-program="space" role="tab">
+                Creative Space
+              </button>
+              <button class="tab-button" data-program="aipp" role="tab">
+                AIPP
+              </button>
+              <button class="tab-button" data-program="heritage" role="tab">
+                Heritage
+              </button>
+            </div>
+
+            <div class="tab-content" id="program-content">
+              <!-- Program content will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Focus Areas Section -->
+      <section id="focus-areas" class="section focus-areas-section">
+        <div class="container">
+          <h2 class="section-title reveal">Key Focus Areas</h2>
+          <p class="section-intro reveal">
+            Critical areas requiring focused attention and action based on
+            community feedback
+          </p>
+
+          <!-- Equity & Access Subsection -->
+          <h3 class="subsection-title reveal">Equity & Access Analysis</h3>
+          <p class="section-intro reveal">
+            Understanding barriers to equitable participation in Austin
+          </p>
+
+          <div class="equity-themes-container">
+            <h3 class="equity-subtitle reveal">Key Areas of Focus</h3>
+            <div class="equity-themes-grid">
+              <div class="equity-theme-card reveal" data-theme="bipoc">
+                <div class="theme-icon">🎨</div>
+                <div class="equity-theme-content">
+                  <h4>BIPOC Artists & Organizations</h4>
+                  <p>
+                    Supporting Black, Latinx, Indigenous, and artists of color
+                    through reduced barriers and targeted resources
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">557</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
                 </div>
-                
-                <!-- Voices from the Community Section - Commented out per request
+              </div>
+
+              <div
+                class="equity-theme-card reveal delay-50"
+                data-theme="accessibility"
+              >
+                <div class="theme-icon">♿</div>
+                <div class="equity-theme-content">
+                  <h4>Disability Access</h4>
+                  <p>
+                    Ensuring venues, programs, and communications are fully
+                    accessible to disabled community members
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">424</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="equity-theme-card reveal delay-100"
+                data-theme="lgbtqia"
+              >
+                <div class="theme-icon">🏳️‍🌈</div>
+                <div class="equity-theme-content">
+                  <h4>LGBTQIA+ Inclusion</h4>
+                  <p>
+                    Creating safe, welcoming spaces and opportunities for
+                    LGBTQIA+ artists and audiences
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">323</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="equity-theme-card reveal delay-150"
+                data-theme="language"
+              >
+                <div class="theme-icon">🌐</div>
+                <div class="equity-theme-content">
+                  <h4>Language Access</h4>
+                  <p>
+                    Providing multilingual support and removing language
+                    barriers to participation
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">503</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="equity-theme-card reveal delay-200"
+                data-theme="geographic"
+              >
+                <div class="theme-icon">📍</div>
+                <div class="equity-theme-content">
+                  <h4>Geographic Equity</h4>
+                  <p>
+                    Ensuring cultural opportunities reach all Austin
+                    neighborhoods, not just central areas
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">705</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="equity-theme-card reveal delay-250"
+                data-theme="economic"
+              >
+                <div class="theme-icon">💰</div>
+                <div class="equity-theme-content">
+                  <h4>Economic Barriers</h4>
+                  <p>
+                    Addressing financial obstacles that prevent equitable
+                    participation in cultural programs
+                  </p>
+                  <div class="impact-indicator">
+                    <span class="impact-number">368</span>
+                    <span class="impact-label">mentions</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voices from the Community Section - Commented out per request
                 <div class="equity-quotes-section reveal delay-300">
                     <h3 class="equity-subtitle">Voices from the Community</h3>
                     <div class="enhanced-quotes-grid">
@@ -357,231 +470,277 @@
                     </div>
                 </div>
                 -->
-                
-                <!-- Transportation & Accessibility Subsection -->
-                <h3 class="subsection-title reveal">Transportation & Accessibility</h3>
-                <p class="section-intro reveal">If community members cannot physically get to a venue, the cultural experience is inaccessible. More than 28% of all responses included transportation barriers.</p>
-                
-                <div class="transport-analysis-grid">
-                    <div class="transport-barriers-chart reveal">
-                        <h3>Transportation Barriers by Area</h3>
-                        <div class="barriers-chart-container">
-                            <div class="barrier-item">
-                                <div class="barrier-label">Late Night Transit</div>
-                                <div class="barrier-bar-wrapper">
-                                    <div class="barrier-bar" style="width: 22%"></div>
-                                    <span class="barrier-percent">22%</span>
-                                </div>
-                            </div>
-                            <div class="barrier-item">
-                                <div class="barrier-label">Distance from Venues</div>
-                                <div class="barrier-bar-wrapper">
-                                    <div class="barrier-bar" style="width: 25%"></div>
-                                    <span class="barrier-percent">25%</span>
-                                </div>
-                            </div>
-                            <div class="barrier-item">
-                                <div class="barrier-label">Venue Accessibility</div>
-                                <div class="barrier-bar-wrapper">
-                                    <div class="barrier-bar" style="width: 28%"></div>
-                                    <span class="barrier-percent">28%</span>
-                                </div>
-                            </div>
-                            <div class="barrier-item">
-                                <div class="barrier-label">Limited Public Transit</div>
-                                <div class="barrier-bar-wrapper">
-                                    <div class="barrier-bar" style="width: 38%"></div>
-                                    <span class="barrier-percent">38%</span>
-                                </div>
-                            </div>
-                            <div class="barrier-item">
-                                <div class="barrier-label">Parking Cost Barriers</div>
-                                <div class="barrier-bar-wrapper">
-                                    <div class="barrier-bar" style="width: 42%"></div>
-                                    <span class="barrier-percent">42%</span>
-                                </div>
-                            </div>
-                            <div class="chart-footer">
-                                <span>Percentage of Transportation Responses</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="transport-issues-cards reveal delay-100">
-                        <h3>Key Transportation Issues</h3>
-                        <div class="issues-card-container">
-                            <div class="issue-card">
-                                <div class="issue-icon">🚗</div>
-                                <div class="issue-content">
-                                    <h4>Parking Costs</h4>
-                                    <p>Average $15-25 per event</p>
-                                    <div class="issue-progress">
-                                        <div class="progress-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="issue-card">
-                                <div class="issue-icon">🚌</div>
-                                <div class="issue-content">
-                                    <h4>Limited Transit</h4>
-                                    <p>No late-night service</p>
-                                    <div class="issue-progress">
-                                        <div class="progress-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="issue-card">
-                                <div class="issue-icon">♿</div>
-                                <div class="issue-content">
-                                    <h4>Accessibility</h4>
-                                    <p>Venue compliance issues</p>
-                                    <div class="issue-progress">
-                                        <div class="progress-bar" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
+          <!-- Transportation & Accessibility Subsection -->
+          <h3 class="subsection-title reveal">
+            Transportation & Accessibility
+          </h3>
+          <p class="section-intro reveal">
+            If community members cannot physically get to a venue, the cultural
+            experience is inaccessible. More than 28% of all responses included
+            transportation barriers.
+          </p>
 
-        <!-- Methodology Section -->
-        <section id="methodology" class="section methodology-section">
-            <div class="container">
-                <h2 class="section-title reveal">Methodology</h2>
-                <p class="section-intro reveal">A comprehensive approach to understanding Austin's creative community</p>
-                
-                <!-- Key Stats Bar -->
-                <div class="methodology-stats reveal">
-                    <div class="method-stat">
-                        <div class="stat-number">1,289</div>
-                        <div class="stat-label">Survey Responses</div>
-                    </div>
-                    <div class="method-stat">
-                        <div class="stat-number">2,551</div>
-                        <div class="stat-label">Session Entries</div>
-                    </div>
-                    <div class="method-stat">
-                        <div class="stat-number">11,801</div>
-                        <div class="stat-label">Comments Analyzed</div>
-                    </div>
+          <div class="transport-analysis-grid">
+            <div class="transport-barriers-chart reveal">
+              <h3>Transportation Barriers by Area</h3>
+              <div class="barriers-chart-container">
+                <div class="barrier-item">
+                  <div class="barrier-label">Late Night Transit</div>
+                  <div class="barrier-bar-wrapper">
+                    <div class="barrier-bar" style="width: 22%"></div>
+                    <span class="barrier-percent">22%</span>
+                  </div>
                 </div>
-                
-                <!-- Methodology Cards -->
-                <div class="methodology-cards reveal delay-100">
-                    <div class="methodology-card">
-                        <div class="method-icon">📊</div>
-                        <h3>Data Collection</h3>
-                        <p>Community feedback was collected through multiple channels:</p>
-                        <div class="method-list">
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Online Survey</strong>
-                                    <span class="method-detail">1,289 responses from Austin's creative community</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Focus Groups</strong>
-                                    <span class="method-detail">17 sessions with targeted stakeholder groups</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>1:1 Interviews</strong>
-                                    <span class="method-detail">Dozens of in-depth conversations with community leaders</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-card">
-                        <div class="method-icon">🔍</div>
-                        <h3>Analysis Process</h3>
-                        <p>All 11,801 qualitative comments were analyzed using a multi-layered approach:</p>
-                        <div class="method-list">
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>AI-Assisted Analysis</strong>
-                                    <span class="method-detail">Advanced pattern recognition and theme identification</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Manual Validation</strong>
-                                    <span class="method-detail">Human review and refinement by research team</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Quantitative Analysis</strong>
-                                    <span class="method-detail">Statistical review of participation and demographics</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Cross-Reference</strong>
-                                    <span class="method-detail">Validation across multiple data sources</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-card">
-                        <div class="method-icon">⚠️</div>
-                        <h3>Limitations</h3>
-                        <p>While comprehensive, this analysis acknowledges certain constraints:</p>
-                        <div class="method-list">
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Self-Selection Bias</strong>
-                                    <span class="method-detail">Participants chose to engage, potentially missing some voices</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Digital Divide</strong>
-                                    <span class="method-detail">Online format may have excluded some populations</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Time Constraints</strong>
-                                    <span class="method-detail">Limited inclusion and depth of analysis in some areas</span>
-                                </div>
-                            </div>
-                            <div class="method-item">
-                                <span class="method-bullet">•</span>
-                                <div>
-                                    <strong>Data Completeness</strong>
-                                    <span class="method-detail">Listening sessions data could not be fully integrated into this analysis at time of reporting</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="barrier-item">
+                  <div class="barrier-label">Distance from Venues</div>
+                  <div class="barrier-bar-wrapper">
+                    <div class="barrier-bar" style="width: 25%"></div>
+                    <span class="barrier-percent">25%</span>
+                  </div>
                 </div>
-                
-                <!-- Acknowledgement -->
-                <div class="methodology-acknowledgement reveal delay-200">
-                    <h3>Acknowledgement</h3>
-                    <p>Although every effort was made to engage with diverse communities, we acknowledge that not everyone has the ability to participate in this engagement phase.</p>
+                <div class="barrier-item">
+                  <div class="barrier-label">Venue Accessibility</div>
+                  <div class="barrier-bar-wrapper">
+                    <div class="barrier-bar" style="width: 28%"></div>
+                    <span class="barrier-percent">28%</span>
+                  </div>
                 </div>
+                <div class="barrier-item">
+                  <div class="barrier-label">Limited Public Transit</div>
+                  <div class="barrier-bar-wrapper">
+                    <div class="barrier-bar" style="width: 38%"></div>
+                    <span class="barrier-percent">38%</span>
+                  </div>
+                </div>
+                <div class="barrier-item">
+                  <div class="barrier-label">Parking Cost Barriers</div>
+                  <div class="barrier-bar-wrapper">
+                    <div class="barrier-bar" style="width: 42%"></div>
+                    <span class="barrier-percent">42%</span>
+                  </div>
+                </div>
+                <div class="chart-footer">
+                  <span>Percentage of Transportation Responses</span>
+                </div>
+              </div>
             </div>
-        </section>
+
+            <div class="transport-issues-cards reveal delay-100">
+              <h3>Key Transportation Issues</h3>
+              <div class="issues-card-container">
+                <div class="issue-card">
+                  <div class="issue-icon">🚗</div>
+                  <div class="issue-content">
+                    <h4>Parking Costs</h4>
+                    <p>Average $15-25 per event</p>
+                    <div class="issue-progress">
+                      <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="issue-card">
+                  <div class="issue-icon">🚌</div>
+                  <div class="issue-content">
+                    <h4>Limited Transit</h4>
+                    <p>No late-night service</p>
+                    <div class="issue-progress">
+                      <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="issue-card">
+                  <div class="issue-icon">♿</div>
+                  <div class="issue-content">
+                    <h4>Accessibility</h4>
+                    <p>Venue compliance issues</p>
+                    <div class="issue-progress">
+                      <div class="progress-bar" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section id="methodology" class="section methodology-section">
+        <div class="container">
+          <h2 class="section-title reveal">Methodology</h2>
+          <p class="section-intro reveal">
+            A comprehensive approach to understanding Austin's creative
+            community
+          </p>
+
+          <!-- Key Stats Bar -->
+          <div class="methodology-stats reveal">
+            <div class="method-stat">
+              <div class="stat-number">1,289</div>
+              <div class="stat-label">Survey Responses</div>
+            </div>
+            <div class="method-stat">
+              <div class="stat-number">2,551</div>
+              <div class="stat-label">Session Entries</div>
+            </div>
+            <div class="method-stat">
+              <div class="stat-number">11,801</div>
+              <div class="stat-label">Comments Analyzed</div>
+            </div>
+          </div>
+
+          <!-- Methodology Cards -->
+          <div class="methodology-cards reveal delay-100">
+            <div class="methodology-card">
+              <div class="method-icon">📊</div>
+              <h3>Data Collection</h3>
+              <p>Community feedback was collected through multiple channels:</p>
+              <div class="method-list">
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Online Survey</strong>
+                    <span class="method-detail"
+                      >1,289 responses from Austin's creative community</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Focus Groups</strong>
+                    <span class="method-detail"
+                      >17 sessions with targeted stakeholder groups</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>1:1 Interviews</strong>
+                    <span class="method-detail"
+                      >Dozens of in-depth conversations with community
+                      leaders</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="methodology-card">
+              <div class="method-icon">🔍</div>
+              <h3>Analysis Process</h3>
+              <p>
+                All 11,801 qualitative comments were analyzed using a
+                multi-layered approach:
+              </p>
+              <div class="method-list">
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>AI-Assisted Analysis</strong>
+                    <span class="method-detail"
+                      >Advanced pattern recognition and theme
+                      identification</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Manual Validation</strong>
+                    <span class="method-detail"
+                      >Human review and refinement by research team</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Quantitative Analysis</strong>
+                    <span class="method-detail"
+                      >Statistical review of participation and
+                      demographics</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Cross-Reference</strong>
+                    <span class="method-detail"
+                      >Validation across multiple data sources</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="methodology-card">
+              <div class="method-icon">⚠️</div>
+              <h3>Limitations</h3>
+              <p>
+                While comprehensive, this analysis acknowledges certain
+                constraints:
+              </p>
+              <div class="method-list">
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Self-Selection Bias</strong>
+                    <span class="method-detail"
+                      >Participants chose to engage, potentially missing some
+                      voices</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Digital Divide</strong>
+                    <span class="method-detail"
+                      >Online format may have excluded some populations</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Time Constraints</strong>
+                    <span class="method-detail"
+                      >Limited inclusion and depth of analysis in some
+                      areas</span
+                    >
+                  </div>
+                </div>
+                <div class="method-item">
+                  <span class="method-bullet">•</span>
+                  <div>
+                    <strong>Data Completeness</strong>
+                    <span class="method-detail"
+                      >Listening sessions data could not be fully integrated
+                      into this analysis at time of reporting</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acknowledgement -->
+          <div class="methodology-acknowledgement reveal delay-200">
+            <h3>Acknowledgement</h3>
+            <p>
+              Although every effort was made to engage with diverse communities,
+              we acknowledge that not everyone has the ability to participate in
+              this engagement phase.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer removed per request -->
@@ -592,5 +751,5 @@
     <!-- Load Data and App JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
-</body>
+  </body>
 </html>
